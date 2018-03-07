@@ -69,12 +69,35 @@
 
         context.fillStyle = "rgba(0, 255, 0, .6)";
         context.fillRect(450, 180, 100, 50);
+
+        let image = document.getElementById('spaceship');
+        context.drawImage(image, 0, 350);
+        context.drawImage(image, 0, 400, 100, 25);
+        context.drawImage(image, 0, 0, 60, 50, 0, 420, 60, 50);
+
+        context.save();
+        context.translate(250, 370);
+        context.rotate(Math.PI/3);
+        context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+        context.restore();
+        context.translate(300, 370);
+        context.rotate(3*Math.PI/4);
+        context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+        context.restore();
+
+
     }
     </script>
 </head>
 <body onload = "pageLoaded();">
     <canvas width="640" height="480" id="testCanvas" style="border: black 1px solid;">
         Your browser does not support HTML5 Canvas. Please shift to another browser.
+        <img src="spaceship.png" id="spaceship">
     </canvas>
+    <audio controls="controls">
+        <source src="music.ogg" type="audio/ogg" />
+        <source src="music.mp3" type="audio/mp3" />
+        Your browser doesn't support HTML5 audio, please switch to a new browser.
+    </audio>
 </body>
 </html>
